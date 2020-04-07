@@ -1,0 +1,53 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+cluster:
+  clusterName: "tf-jx-loyal-pipefish"
+  devEnvApprovers: []
+
+  environmentGitOwner: ""
+  project: "pubsubdemo-1569168935088"
+  provider: gke
+  zone: "us-central1-a"
+gitops: true
+environments:
+- key: dev
+- key: staging
+- key: production
+ingress:
+  domain: ""
+  externalDNS: false
+  tls:
+    email: ""
+    enabled: false
+    production: true
+kaniko: true
+storage:
+  backup:
+    enabled: true
+    url: gs://backup-tf-jx-loyal-pipefish-783c3da5e7e5
+  logs:
+    enabled: true
+    url: gs://logs-tf-jx-loyal-pipefish-783c3da5e7e5
+  reports:
+    enabled: true
+    url: gs://reports-tf-jx-loyal-pipefish-783c3da5e7e5
+  repository:
+    enabled: true
+    url: gs://repository-tf-jx-loyal-pipefish-783c3da5e7e5
+secretStorage: vault
+vault:
+  name: tf-jx-loyal-pipefish
+  bucket: vault-tf-jx-loyal-pipefish-783c3da5e7e5
+  key: crypto-key-tf-jx-loyal-pipefish-783c3da5e7e5
+  keyring: keyring-tf-jx-loyal-pipefish-783c3da5e7e5
+  serviceAccount: tf-jx-loyal-pipefish-vt
+velero:
+  namespace: velero
+  schedule: "0 * * * *"
+  serviceAccount: tf-jx-loyal-pipefish-vo
+  ttl: "720h0m0s"  
+versionStream:
+  ref: master
+  url: https://github.com/jenkins-x/jenkins-x-versions.git
+webhook: "prow"
